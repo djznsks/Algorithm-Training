@@ -1,0 +1,25 @@
+
+//通过创建一个index数组来代替冒泡排序
+//还可以构建pair数组在进行sort重载排序
+
+        int n = position.size();
+        vector<int> index(n);
+        for(int i = 0; i < n; i++) index[i] = i;
+        sort(index.begin(), index.end());
+        vector<double> time(n);
+        for(int i = 0; i < n; i++) {
+            int idx = index[i];
+            time[i] = (double)(target - position[idx]) / speed[idx];
+        }
+        
+
+
+for(int i = 0; i < n - 1; i++) {
+            for(int j = 0; j < n - 1 - i; j++) {
+                if(position[j] > position[j + 1]) {  // 修正：使用 j
+                    swap(position[j], position[j + 1]);
+                    swap(speed[j], speed[j + 1]);
+                }
+            }
+        }
+        
